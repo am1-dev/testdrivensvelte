@@ -2,8 +2,6 @@ import SignUpPage from "./SignUpPage.svelte";
 import { render, screen } from "@testing-library/svelte";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
-import axios from "axios";
-import "whatwg-fetch";
 import { setupServer } from "msw/node";
 import { rest } from "msw";
 
@@ -75,7 +73,7 @@ describe("sign up page", () => {
 		it("sends username, email, and password to back end after clicking button", async () => {
 			let requestBody;
 			const server = setupServer(
-				rest.post("/api.1.0/users", (req, res, ctx) => {
+				rest.post("/api/1.0/users", (req, res, ctx) => {
 					console.log("This line is run");
 					requestBody = req.body;
 					return res(ctx.status(200));

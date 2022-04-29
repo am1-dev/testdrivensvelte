@@ -5,7 +5,7 @@
 */ -->
 <script> 
 
-// import axios from 'axios'
+import axios from 'axios'
 
   let disabled = true;
   let username, email, password,passwordRepeat; 
@@ -15,14 +15,14 @@
   const submit = () => {
 
    
-    // axios.post('/ap1/1.0/users', {username, email, password})
-    fetch('/api.1.0/users', {
-      method:'POST',
-       headers:{ 
-        'Content-Type' : 'application/json'
-      },
-      body:JSON.stringify( {username, email, password})
-    })
+    axios.post('http://localhost:8080/api/1.0/users', {username, email, password})
+    // fetch('/api/1.0/users', {
+    //   method:'POST',
+    //    headers:{ 
+    //     'Content-Type' : 'application/json'
+    //   },
+    //   body:JSON.stringify( {username, email, password})
+    // })
   }
    
     // console.log( {username, email, password});
